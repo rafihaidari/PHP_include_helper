@@ -2,8 +2,7 @@
 
 class Config
 {
-
-    function __construct()
+    public function __construct()
     {
         define('HOST', 'localhost');
         define('USER', 'root');
@@ -14,11 +13,9 @@ class Config
             $conn = new PDO("mysql:host=" . HOST . ";dbname=" . DB, USER, PASSWORD);
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            echo "Connected successfully" . PHP_EOL;
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage() . PHP_EOL;
         }
     }
 }
-
-new Config();
